@@ -15,7 +15,7 @@ function TodoService() {
 			})
 			.fail(logError)
 	}
-
+ 
 	this.addTodo = function (todo, getTodos) {
 		// WHAT IS THIS FOR???
 		$.post('/api/todos', todo)

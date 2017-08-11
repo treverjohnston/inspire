@@ -13,11 +13,16 @@ function TodoController() {
 		//FYI DONT EDIT ME :)
 		service.getTodos(draw)
 	}
-
+ 
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
+		for (var i = 0; i < todos.length; i++) {
+			var todo = todos[i];
+			template += `<div><h2>${todo.title}</h2></div>`	
+		}
+		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
 	}
 
@@ -27,13 +32,13 @@ function TodoController() {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			title: form.title.value
 		}
-
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		service.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
@@ -49,5 +54,5 @@ function TodoController() {
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-
+getTodos()
 }
