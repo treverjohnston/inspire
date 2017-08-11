@@ -3,20 +3,20 @@ function WeatherController() {
 
 	function drawWeather(weather, type) {
 		let kel = weather.main.temp
-
+// debugger
 		if (type){
 		let cel = Math.floor(kToC(kel))
-			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('fahr')">The Temp is C ${cel} in Boise</button>`
+			document.getElementById('weather').innerHTML = `<h3>C ${cel}</h3>
+			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('fahr')"><p>F</p></button>`
 		}
 
 		if (!type) {
 			let fahr = Math.floor(kToF(kel))
-			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('celcius')">The Temp is F ${fahr} in Boise</button>
+			document.getElementById('weather').innerHTML = `<h3>F ${fahr}</h3>
+			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('celcius')"><p>C</p></button>
 	`
 		}
-	}
+	} 
 
 	function kToF(kel) {
 		let fahr = ((9 / 5 * ((kel - 273)) + 32))

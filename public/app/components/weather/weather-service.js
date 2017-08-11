@@ -13,4 +13,4 @@ function WeatherService() {
 			drawWeather(weather); 
 		})
 	}
-}
+} 

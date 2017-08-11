@@ -4,3 +4,24 @@ body{
     background-size: cover;
     font-family: 'Bellefair', serif;
 }
+.weather{
+   padding: 1rem;
+    background-color: rgba(88, 100, 119, .8);
+    color: white;
+}
+
+.quote{
+   padding: 1rem;
+    background-color: rgba(88, 100, 119, .8);
+    color: white;
+}
+
+.todo{
+    padding: 1rem;
+    background-color: rgba(88, 100, 119, .8);
+    color: white;
+}
+
+.input-field{
+    color:black;
+}

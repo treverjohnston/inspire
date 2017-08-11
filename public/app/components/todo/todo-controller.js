@@ -21,18 +21,44 @@ function TodoController() {
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
 			if (todo.completed){
-			template += `<div><h2>${todo.title}</h2></div>
-			<button class="btn btn-default" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Checked</button>	
-			<button class="btn btn-default" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>`	
+			template += `<div class ="col-xs-12">
+							<h4>${todo.title}</h4>
+							<button class="btn btn-default glyphicon glyphicon-ok" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
+							<button class="btn btn-default glyphicon glyphicon-remove-circle" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></button>
+						</div>`	
 			}
 			else {
-			template += `<div><h2>${todo.title}</h2></div>
-			<button class="btn btn-default" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Unchecked</button>	
-			<button class="btn btn-default" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>`	
+			template += `<div class="col-xs-12">
+							<h4>${todo.title}</h4>
+							<button class="btn btn-default glyphicon glyphicon-unchecked" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
+							<button class="btn btn-default glyphicon glyphicon-remove-circle" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></button>
+						</div>`	
 			}
 		}
 		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
+	}
+
+	function drawToggleOn(){
+		document.getElementById('toggle').innerHTML = `
+							<button class="btn btn-default todo-button" onclick="app.controllers.todoController.toggleTodoOff()">Minimize ToDo List</button>
+							<div class="todo">
+								<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+									<input type="text" class ="input-field"name="title" placeholder="Item">
+									<button type="submit">Add</button>
+								</form>
+								<div class="row">
+									<div id="todo">
+									</div>
+								</div>
+							</div>
+		`
+	}
+
+	function drawToggleOff(){
+		document.getElementById('toggle').innerHTML = `
+							<button class="btn btn-default todo-button" onclick="app.controllers.todoController.toggleTodoOn()">Expand ToDo List</button>
+		`
 	}
 
 	this.addTodoFromForm = function (e) {
@@ -63,6 +89,14 @@ function TodoController() {
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
+	this.toggleTodoOn = function (){
+		drawToggleOn()
+		getTodos()
+	}
+	this.toggleTodoOff = function (){
+		drawToggleOff()
+	}
+
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-getTodos()
+// getTodos()
 }

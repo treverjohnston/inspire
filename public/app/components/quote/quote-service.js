@@ -10,5 +10,5 @@ function QuoteService(){
 			//Now What?
 			drawQuote(quote)
 		}) 
-	}
+	} 
 }

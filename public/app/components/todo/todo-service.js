@@ -28,11 +28,9 @@ function TodoService() {
 		var todo = todoList.find(todo => todo._id == todoId)
 		if (!todo.completed){
 			todo.completed = true
-			console.log('incomplete')
 		}
 		else if (todo.completed){
 			todo.completed = false
-			 console.log('complete')
 		}
 		if (!todo) {return logError('not a thing bruh')}
 		//STEP 1: Find the todo by its id **HINT** todoList
@@ -51,7 +49,7 @@ function TodoService() {
 				// getTodos() // <-- LEAVE ME ALONE I WORK LIKE THIS
 			// })
 			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
-	}
+	} 
 
 	this.removeTodo = function (todoId, getTodos) {
 		// Umm this one is on you.... It's also a unique snowflake the method is a DELETE
