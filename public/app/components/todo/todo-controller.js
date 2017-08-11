@@ -6,12 +6,12 @@ function TodoController() {
 	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
 	// removeTodo takes in a todoId and sends a delete request to the server
 	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
-	var todoService = new TodoService()
+	var service = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
 	function getTodos(){
 		//FYI DONT EDIT ME :)
-		todoService.getTodos(draw)
+		service.getTodos(draw)
 	}
 
 	function draw(todos) {
@@ -32,13 +32,13 @@ function TodoController() {
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
-		todoService.addTodo(todo, getTodos)
+		service.addTodo(todo, getTodos)
 		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
 		// asks the service to edit the todo status
-		todoService.toggleTodoStatus(todoId, getTodos)
+		service.toggleTodoStatus(todoId, getTodos)
 		// YEP THATS IT FOR ME
 	}
 

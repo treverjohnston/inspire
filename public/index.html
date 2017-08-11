@@ -3,28 +3,49 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="body">
-	<div id="weather">
-		Your Weather Template
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="background" class="background">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="weather">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="quote">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="todo">
+							<form onsubmit=""></form>
+							A Todo List
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
-	</div>
-
-
 
 
 	<!--JS Libraries-->
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 	<!--Services-->
 	<script src="app/components/weather/weather-service.js"></script>
 	<script src="app/components/image/image-service.js"></script>
