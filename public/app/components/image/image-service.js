@@ -11,5 +11,5 @@ function ImageService() {
 			console.log('Image Data:', image)
 			drawImage(image)
 		})
-	}
+	} 
 }

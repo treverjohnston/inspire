@@ -1,6 +1,6 @@
-/* .background{
-    size: cover;
-} */
 body{
- font-family: 'Bellefair', serif;
-}   
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Bellefair', serif;
+}

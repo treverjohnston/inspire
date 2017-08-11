@@ -33,9 +33,11 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
+						<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+							<input type="text" name="title" placeholder="Item">
+							<button type="submit">Add</button>
+						</form>
 						<div id="todo">
-							<form onsubmit=""></form>
-							A Todo List
 						</div>
 					</div>
 				</div>

@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
 
 var todoSchema = new mongoose.Schema({
     title: {type: String, required: true},
-    completed: {type: String, required: true, default: 'No'}
+    completed: {type: Boolean, required: true, default: false}
 })
 
 var Todo = mongoose.model('Todo', todoSchema)
@@ -52,7 +52,7 @@ router.delete('/:todoId', (req, res, next) => {
 router.put('/:todoId', (req, res, next) =>{
   var todoId = req.params.todoId
   var updatedTodoObj = req.body
-  Todos.findByIdAndUpdate(todoId, updatedTodoObj)
+  Todo.findByIdAndUpdate(todoId, updatedTodoObj)
   .then(todo => {
     res.send({message: 'Successfully Updated Todo'})
   })

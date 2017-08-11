@@ -20,7 +20,16 @@ function TodoController() {
 		var template = ''
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
-			template += `<div><h2>${todo.title}</h2></div>`	
+			if (todo.completed){
+			template += `<div><h2>${todo.title}</h2></div>
+			<button class="btn btn-default" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Checked</button>	
+			<button class="btn btn-default" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>`	
+			}
+			else {
+			template += `<div><h2>${todo.title}</h2></div>
+			<button class="btn btn-default" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Unchecked</button>	
+			<button class="btn btn-default" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Remove</button>`	
+			}
 		}
 		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
@@ -38,6 +47,7 @@ function TodoController() {
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		service.addTodo(todo, getTodos)
+		form.reset()
 		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TODOS AFTER AN EDIT
 	}
 
@@ -49,7 +59,7 @@ function TodoController() {
 
 	this.removeTodo = function (todoId) {
 		// ask the service to run the remove todo with this id
-
+		service.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
