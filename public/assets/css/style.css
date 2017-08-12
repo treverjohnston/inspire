@@ -4,24 +4,38 @@ body{
     background-size: cover;
     font-family: 'Bellefair', serif;
 }
-.weather{
-   padding: 1rem;
-    background-color: rgba(88, 100, 119, .8);
+
+.weather-btn{
+    background-color: rgba(53, 58, 66, .8);
     color: white;
+    border-radius: 50%
 }
 
 .quote{
+    margin: 15rem 0 0 0;
    padding: 1rem;
-    background-color: rgba(88, 100, 119, .8);
+    background-color: rgba(53, 58, 66, .8);
     color: white;
 }
 
 .todo{
     padding: 1rem;
-    background-color: rgba(88, 100, 119, .8);
+    background-color: rgba(53, 58, 66, .8);
+    color: white;
+}
+
+.list{
+    display: inline-block;
+    background-color: transparent;
     color: white;
 }
 
 .input-field{
     color:black;
+}
+
+.toggle{
+    position:relative;
+    background-color: rgba(53, 58, 66, .8);
+    color: white;
 }

@@ -28,7 +28,7 @@ function TodoService() {
 		var todo = todoList.find(todo => todo._id == todoId)
 		if (!todo.completed){
 			todo.completed = true
-		}
+		} 
 		else if (todo.completed){
 			todo.completed = false
 		}

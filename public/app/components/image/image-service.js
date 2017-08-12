@@ -6,7 +6,6 @@ function ImageService() {
 	this.getImage = function (drawImage) {
 		// ^^^^^^^ How do you call this function?
 		return $.get(apiUrl, function (res) {
-			console.log(res)
 			image = JSON.parse(res)
 			console.log('Image Data:', image)
 			drawImage(image)

@@ -5,7 +5,7 @@ function ImageController() {
 		// document.getElementById('background').innerHTML = `
 		// <img src="${image.large_url}" class="img-responsive" alt="background Picture">
 		// `
-		document.body.style.backgroundImage = `url("${image.large_url}")`;
+		document.body.style.backgroundImage = `url("${image.url}")`;
  
 	}
 

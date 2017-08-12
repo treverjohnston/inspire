@@ -9,43 +9,43 @@ function TodoController() {
 	var service = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
 		//FYI DONT EDIT ME :)
 		service.getTodos(draw)
 	}
- 
+
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
-			if (todo.completed){
-			template += `<div class ="col-xs-12">
-							<h4>${todo.title}</h4>
-							<button class="btn btn-default glyphicon glyphicon-ok" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
-							<button class="btn btn-default glyphicon glyphicon-remove-circle" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></button>
-						</div>`	
+			if (todo.completed) {
+				template += `<div class ="col-xs-12">
+							<button class="btn glyphicon glyphicon-ok list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
+							<h3 class="list">${todo.title}</h3>
+							<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
+						</div>`
 			}
 			else {
-			template += `<div class="col-xs-12">
-							<h4>${todo.title}</h4>
-							<button class="btn btn-default glyphicon glyphicon-unchecked" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
-							<button class="btn btn-default glyphicon glyphicon-remove-circle" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></button>
-						</div>`	
+				template += `<div class="col-xs-12">
+							<button class="btn btn-default list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">--</button>	
+							<h3 class="list">${todo.title}</h3>
+							<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
+						</div>`
 			}
 		}
 		document.getElementById('todo').innerHTML = template
 		//DONT FORGET TO LOOP
 	}
 
-	function drawToggleOn(){
+	function drawToggleOn() {
 		document.getElementById('toggle').innerHTML = `
-							<button class="btn btn-default todo-button" onclick="app.controllers.todoController.toggleTodoOff()">Minimize ToDo List</button>
+							<button class="btn toggle" onclick="app.controllers.todoController.toggleTodoOff()">-</button>
 							<div class="todo">
 								<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 									<input type="text" class ="input-field"name="title" placeholder="Item">
-									<button type="submit">Add</button>
+									<button type="submit"class="input-field btn">Add</button>
 								</form>
 								<div class="row">
 									<div id="todo">
@@ -55,9 +55,9 @@ function TodoController() {
 		`
 	}
 
-	function drawToggleOff(){
+	function drawToggleOff() {
 		document.getElementById('toggle').innerHTML = `
-							<button class="btn btn-default todo-button" onclick="app.controllers.todoController.toggleTodoOn()">Expand ToDo List</button>
+							<button class="btn btn-default toggle" onclick="app.controllers.todoController.toggleTodoOn()">+</button>
 		`
 	}
 
@@ -74,7 +74,7 @@ function TodoController() {
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		service.addTodo(todo, getTodos)
 		form.reset()
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TODOS AFTER AN EDIT
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
@@ -89,14 +89,14 @@ function TodoController() {
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
-	this.toggleTodoOn = function (){
+	this.toggleTodoOn = function () {
 		drawToggleOn()
 		getTodos()
 	}
-	this.toggleTodoOff = function (){
+	this.toggleTodoOff = function () {
 		drawToggleOff()
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-// getTodos()
+	// getTodos()
 }

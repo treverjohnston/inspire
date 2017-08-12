@@ -1,22 +1,22 @@
 function WeatherController() {
 	var service = new WeatherService();
 
-	function drawWeather(weather, type) {
-		let kel = weather.main.temp
-// debugger
-		if (type){
-		let cel = Math.floor(kToC(kel))
-			document.getElementById('weather').innerHTML = `<h3>C ${cel}</h3>
-			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('fahr')"><p>F</p></button>`
+	function drawWeather(weatherData, type) {
+		let kel = weatherData.main.temp
+		if (type) {
+			let cel = Math.floor(kToC(kel))
+			// <img src="http://openweathermap.org/img/w/${weatherData.weather.icon}.png><img>
+			document.getElementById('weather').innerHTML = `
+			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3>${cel} C</h3></button>`
 		}
 
 		if (!type) {
 			let fahr = Math.floor(kToF(kel))
-			document.getElementById('weather').innerHTML = `<h3>F ${fahr}</h3>
-			<button type="button" class="btn btn-default" onclick="app.controllers.weatherController.changeWeather('celcius')"><p>C</p></button>
+			document.getElementById('weather').innerHTML = `
+			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3>${fahr} F</h3></button>
 	`
 		}
-	} 
+	}
 
 	function kToF(kel) {
 		let fahr = ((9 / 5 * ((kel - 273)) + 32))
@@ -40,7 +40,6 @@ function WeatherController() {
 	}
 
 	service.getWeather(function (weather) {
-		console.log(weather);
 		//What can you do with this weather object?
 		drawWeather(weather)
 	})
