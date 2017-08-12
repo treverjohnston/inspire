@@ -6,8 +6,12 @@ function QuoteController() {
 		var words = quote.quote
 		var author = quote.author
 		document.getElementById('quote').innerHTML = `
-								<h2>${words}</h2>
-								<h3>${author}</h3>
+								<div class="card">
+										<h2 class ="words">${words}</h2>
+									<div class="replacement">
+										<h3 class="change">${author}</h3>
+									</div>
+								</div>
 		`
 	}
 

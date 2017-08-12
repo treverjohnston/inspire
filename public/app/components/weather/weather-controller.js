@@ -3,15 +3,18 @@ function WeatherController() {
 
 	function drawWeather(weatherData, type) {
 		let kel = weatherData.main.temp
+		let icon = weatherData.weather
+
 		if (type) {
 			let cel = Math.floor(kToC(kel))
-			// <img src="http://openweathermap.org/img/w/${weatherData.weather.icon}.png><img>
+			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
 			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3>${cel} C</h3></button>`
 		}
 
 		if (!type) {
 			let fahr = Math.floor(kToF(kel))
+			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
 			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3>${fahr} F</h3></button>
 	`

@@ -7,7 +7,6 @@ function TodoController() {
 	// removeTodo takes in a todoId and sends a delete request to the server
 	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
 	var service = new TodoService()
-
 	// Use this getTodos function as your callback for all other edits
 	function getTodos() {
 		//FYI DONT EDIT ME :)
@@ -17,9 +16,11 @@ function TodoController() {
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
+		let template = ''
+		let count = 0
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
+			count++
 			if (todo.completed) {
 				template += `<div class ="col-xs-12">
 							<button class="btn glyphicon glyphicon-ok list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
@@ -35,7 +36,9 @@ function TodoController() {
 						</div>`
 			}
 		}
-		document.getElementById('todo').innerHTML = template
+		console.log(count)
+		let countTemplate = `<div class = "count"><h3>${count}</h3></div>`
+		document.getElementById('todo').innerHTML = countTemplate + template 
 		//DONT FORGET TO LOOP
 	}
 
@@ -98,5 +101,4 @@ function TodoController() {
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-	// getTodos()
 }
