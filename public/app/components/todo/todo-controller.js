@@ -36,7 +36,6 @@ function TodoController() {
 						</div>`
 			}
 		}
-		console.log(count)
 		let countTemplate = `<div class = "count"><h3>${count}</h3></div>`
 		document.getElementById('todo').innerHTML = countTemplate + template 
 		//DONT FORGET TO LOOP

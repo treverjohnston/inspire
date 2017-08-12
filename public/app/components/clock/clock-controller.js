@@ -1,18 +1,19 @@
 function ClockController() {
     var service = new ClockService()
 
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+
     this.startTime = function startTime() {
         var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
+        h = checkTime(h);
         m = checkTime(m);
-        document.getElementById('clock').innerHTML =
-            h + ":" + m;
+        document.getElementById('clock').innerHTML = `<h2> ${h}:${m}`
         var t = setTimeout(startTime, 500);
     }
 
-    this.checkTime = function checkTime(i) {
-        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-        return i;
-    }
 }
