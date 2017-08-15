@@ -3,21 +3,35 @@ function WeatherController() {
 
 	function drawWeather(weatherData, type) {
 		let kel = weatherData.main.temp
-		let icon = weatherData.weather
+		let icon = weatherData.weather[0].icon
+		let iconUrl = `http://openweathermap.org/img/w/${icon}.png`
 
 		if (type) {
 			let cel = Math.floor(kToC(kel))
-			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3 class="weather">${cel} C</h3></button>`
+			<div class="row">
+				<div class="col-xs-12">
+					<img class ="img-responsive weather-icon" src=${iconUrl}><img>
+				</div>
+				<div class ="col-xs-12">
+					<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3 class="weather">${cel}°C</h3></button>
+				</div>	
+			</div>
+			`
 		}
 
 		if (!type) {
 			let fahr = Math.floor(kToF(kel))
-			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3 class="weather">${fahr} F</h3></button>
-	`
+			<div class="row">
+				<div class="col-xs-12">
+					<img class ="img-responsive weather-icon"src=${iconUrl}><img>
+				</div>
+				<div class ="col-xs-12">
+					<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3 class="weather">${fahr}°F</h3></button>
+				</div>
+			</div>
+			`
 		}
 	}
 

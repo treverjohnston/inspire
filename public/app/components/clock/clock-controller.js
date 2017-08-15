@@ -6,7 +6,7 @@ function ClockController() {
         return i;
     }
 
-    this.startTime = function startTime() {
+   this.startTime = function startTime(){
         var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
@@ -15,4 +15,5 @@ function ClockController() {
         document.getElementById('clock').innerHTML = `<h2 class="clock-face"><b>${h}:${m}</b></h2>`
         var t = setTimeout(startTime, 500);
     }
+
 }

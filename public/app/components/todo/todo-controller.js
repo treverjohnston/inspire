@@ -57,9 +57,11 @@ function TodoController() {
 		document.getElementById('toggle').innerHTML = `
 							<button class="btn toggle" onclick="app.controllers.todoController.toggleTodoOff()">-</button>
 							<div class="todo text-center">
-								<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-									<input type="text" class ="input-field"name="title" placeholder="To Do">
-									<button type="submit"class="input-field btn">Add</button>
+								<form class="form-inline"onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+									<div class="form-group">
+										<input type="text" class ="form-control"name="title" placeholder="To Do">
+										<button type="submit"class="input-field btn">Add</button>
+									</div>
 								</form>
 								<div class="row">
 									<div class="col-xs-12" id="todo">

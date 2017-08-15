@@ -11,17 +11,18 @@
 
 <body onload="app.controllers.clockController.startTime()" id="body">
 	<div class="container-fluid">
+		<!-- fix clock service -->
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="row">
-					<div class="col-xs-3">
+					<div class="col-xs-12 col-sm-3 col-md-3">
 						<div id="toggle">
 							<button class="btn toggle" onclick="app.controllers.todoController.toggleTodoOn('on')">+</button>
 						</div>
 					</div>
-					<div class="col-xs-6">
+					<div class="col-xs-12 col-sm-7 col-md-6">
 						<div class="row">
-							<div class ="col-xs-12 clock text-center" id="clock">
+							<div class="col-xs-12 clock text-center" id="clock">
 							</div>
 							<div class="col-xs-12">
 								<div id="quote" class="quote text-center">
@@ -29,8 +30,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-offset-2 col-xs-1">
-						<div id="weather" class="text-center weather">
+					<div class="col-xs-12 col-sm-2 col-md-offset-2 col-md-1">
+						<div id="weather" class="weather text-center">
 						</div>
 					</div>
 				</div>
