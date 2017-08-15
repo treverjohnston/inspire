@@ -22,21 +22,33 @@ function TodoController() {
 			var todo = todos[i];
 			count++
 			if (todo.completed) {
-				template += `<div class ="col-xs-12">
-							<button class="btn glyphicon glyphicon-ok list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
-							<h3 class="list">${todo.title}</h3>
-							<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
-						</div>`
+				template += `<div class="row">
+								<div class ="col-xs-2">
+									<button class="btn glyphicon glyphicon-ok list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></button>	
+								</div>
+								<div class="col-xs-8">
+									<h3 class="list">${todo.title}</h3>
+								</div>
+								<div class="col-xs-2">
+									<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
+								</div>
+							</div>`
 			}
 			else {
-				template += `<div class="col-xs-12">
-							<button class="btn btn-default list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">--</button>	
-							<h3 class="list">${todo.title}</h3>
-							<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
-						</div>`
+				template += `<div class="row">
+								<div class ="col-xs-2">
+									<button class="btn btn-default list btn-xs" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">--</button>	
+								</div>
+								<div class="col-xs-8">
+									<h3 class="list">${todo.title}</h3>
+								</div>
+								<div class="col-xs-2">
+									<button class="btn btn-danger btn-xs list" onclick="app.controllers.todoController.removeTodo('${todo._id}')"> X</button>
+								</div>
+							</div>`
 			}
 		}
-		let countTemplate = `<div class = "count"><h3>${count}</h3></div>`
+		let countTemplate = `<div><h3>${count} Items To Do</h3></div>`
 		document.getElementById('todo').innerHTML = countTemplate + template 
 		//DONT FORGET TO LOOP
 	}
@@ -44,13 +56,13 @@ function TodoController() {
 	function drawToggleOn() {
 		document.getElementById('toggle').innerHTML = `
 							<button class="btn toggle" onclick="app.controllers.todoController.toggleTodoOff()">-</button>
-							<div class="todo">
+							<div class="todo text-center">
 								<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-									<input type="text" class ="input-field"name="title" placeholder="Item">
+									<input type="text" class ="input-field"name="title" placeholder="To Do">
 									<button type="submit"class="input-field btn">Add</button>
 								</form>
 								<div class="row">
-									<div id="todo">
+									<div class="col-xs-12" id="todo">
 									</div>
 								</div>
 							</div>
@@ -59,7 +71,7 @@ function TodoController() {
 
 	function drawToggleOff() {
 		document.getElementById('toggle').innerHTML = `
-							<button class="btn btn-default toggle" onclick="app.controllers.todoController.toggleTodoOn()">+</button>
+							<button class="btn toggle" onclick="app.controllers.todoController.toggleTodoOn()">+</button>
 		`
 	}
 

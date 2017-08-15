@@ -5,18 +5,38 @@ body{
     font-family: 'Bellefair', serif;
 }
 
+
 .weather-btn{
-    background-color: rgba(53, 58, 66, .8);
+    /* background-color: rgba(53, 58, 66, .8); */
+    background-color: transparent;
     color: white;
-    border-radius: 50%
+    border-radius: 50%;
+    margin: 5rem 0 0 0;
 }
 
-.quote{
-    margin: 25rem 0 0 0;
-   padding: 1rem;
-    background-color: rgba(53, 58, 66, .8);
+.weather{
+    font-size: 3.5rem;
+}
+
+.clock{
+     margin: 20rem 0 0 0; 
+    /* background-color: rgba(53, 58, 66, .8); */
+     /* padding:  0 15rem 0 15rem;  */
     color: white;
-    border-radius: 10%;
+}   
+
+.clock-face{
+    font-size: 25rem;
+     /* margin: 10rem 0 10rem 0;  */
+}  
+
+.quote{
+    margin: 5rem 0 0 0;
+   padding: 1rem;
+     background-color: rgba(0, 0, 0, .8); 
+    /* background-color: transparent; */
+    color: white;
+    border-radius: 2rem;
 }
 
 .replacement{
@@ -40,7 +60,8 @@ body{
 }
 
 .change{
-  background-color: rgba(53, 58, 66, .8);
+  /* background-color: rgba(53, 58, 66, .8); */
+  background-color: transparent;
   color: white;
   border-radius: 5%;
   /* font-size: 16px; */
@@ -53,23 +74,25 @@ body{
 }
 
 .card:hover .words{
-    opacity: .2
+    opacity: .1
 }
 
-.count{
+/* .count{
     margin-left: 50%;
-}
+} */
 
 .todo{
     padding: 1rem;
-    background-color: rgba(53, 58, 66, .8);
+     background-color: rgba(0, 0, 0, .8); 
+    /* background-color: transparent; */
     color: white;
+    border-radius: 1rem;
 }
 
 .list{
-    display: inline-block;
     background-color: transparent;
     color: white;
+    margin-top: 1rem;
 }
 
 .input-field{
@@ -78,6 +101,9 @@ body{
 
 .toggle{
     position:relative;
-    background-color: rgba(53, 58, 66, .8);
+    /* background-color: rgba(53, 58, 66, .8); */
+    background-color: transparent;
     color: white;
+    font-size: 10rem;
 }
+

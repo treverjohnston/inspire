@@ -12,8 +12,7 @@ function ClockController() {
         var m = today.getMinutes();
         h = checkTime(h);
         m = checkTime(m);
-        document.getElementById('clock').innerHTML = `<h2> ${h}:${m}`
+        document.getElementById('clock').innerHTML = `<h2 class="clock-face"><b>${h}:${m}</b></h2>`
         var t = setTimeout(startTime, 500);
     }
-
 }

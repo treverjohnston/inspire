@@ -9,14 +9,14 @@ function WeatherController() {
 			let cel = Math.floor(kToC(kel))
 			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3>${cel} C</h3></button>`
+			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('fahr')"><h3 class="weather">${cel} C</h3></button>`
 		}
 
 		if (!type) {
 			let fahr = Math.floor(kToF(kel))
 			// <img src="http://openweathermap.org/img/w/${icon}.png><img>
 			document.getElementById('weather').innerHTML = `
-			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3>${fahr} F</h3></button>
+			<button type="button" class="btn btn-xs weather-btn" onclick="app.controllers.weatherController.changeWeather('celcius')"><h3 class="weather">${fahr} F</h3></button>
 	`
 		}
 	}
